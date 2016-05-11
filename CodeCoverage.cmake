@@ -37,6 +37,7 @@
 #
 # 2016-05-10, Barthélémy von Haller
 # - Update the instructions to remove the unnecessary parts. 
+# - Changed the path to the report for one that can be clicked directly in the terminal.
 #
 # USAGE:
 # 0. (Mac only) If you use Xcode 5.1 make sure to patch geninfo as described here:
@@ -151,7 +152,7 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _outputname)
 	# Show info where to find the report
 	ADD_CUSTOM_COMMAND(TARGET ${_targetname} POST_BUILD
 		COMMAND ;
-		COMMENT "Open ./${_outputname}/index.html in your browser to view the coverage report."
+		COMMENT "Open file://${CMAKE_CURRENT_BINARY_DIR}/${_outputname}/index.html in your browser to view the coverage report."
 	)
 
 ENDFUNCTION() # SETUP_TARGET_FOR_COVERAGE
