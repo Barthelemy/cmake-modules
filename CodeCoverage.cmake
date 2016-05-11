@@ -35,8 +35,10 @@
 # - Added support for Clang.
 # - Some additional usage instructions.
 #
+# 2016-05-10, Barthélémy von Haller
+# - Update the instructions to remove the unnecessary parts. 
+#
 # USAGE:
-
 # 0. (Mac only) If you use Xcode 5.1 make sure to patch geninfo as described here:
 #      http://stackoverflow.com/a/22404544/80480
 #
@@ -45,25 +47,21 @@
 # 2. Add the following line to your CMakeLists.txt:
 #      INCLUDE(CodeCoverage)
 #
-# 3. Set compiler flags to turn off optimization and enable coverage:
-#    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-#	 SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-#
 # 3. Use the function SETUP_TARGET_FOR_COVERAGE to create a custom make target
 #    which runs your test executable and produces a lcov code coverage report:
-#    Example:
-#	 SETUP_TARGET_FOR_COVERAGE(
+#	   SETUP_TARGET_FOR_COVERAGE(
 #				my_coverage_target  # Name for custom target.
 #				test_driver         # Name of the test driver executable that runs the tests.
+#                                   # This is typically "ctest".
 #									# NOTE! This should always have a ZERO as exit code
 #									# otherwise the coverage generation will not complete.
 #				coverage            # Name of output directory.
 #				)
 #
 # 4. Build a Debug build:
-#	 cmake -DCMAKE_BUILD_TYPE=Debug ..
-#	 make
-#	 make my_coverage_target
+#	   cmake -DCMAKE_BUILD_TYPE=Debug ..
+#	   make
+#      make my_coverage_target
 #
 #
 
